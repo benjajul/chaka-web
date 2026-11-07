@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CHAKA · Vidas Conectadas</title>
+<meta name="description" content="CHAKA es una marca chilena de Tierra de Composta y regalos gráficos personalizados: poleras, tazas, chapitas, stickers, imanes, llaveros y mousepads. Vidas Conectadas.">
+<meta property="og:title" content="CHAKA · Vidas Conectadas">
+<meta property="og:description" content="Regalos personalizados, composta y más.">
+<meta property="og:image" content="logos/principal_claro.png">
+<meta name="theme-color" content="#1D3C34">
+<link rel="icon" type="image/png" href="logos/favicon.png">
+<link rel="apple-touch-icon" href="logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700;800&family=Poppins:wght@300;400;500;600&display=swap">
+<style>
+html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+/* Layout: sitio de 7 páginas por hash; bandas a todo el ancho que alternan verde y arena, como dos orillas unidas por el puente.
+   Tema único deliberado: la paleta oficial del brandbook. Terracota solo en acentos (bordes, líneas, íconos), nunca en texto corrido. */
+:root{
+  --verde:#1D3C34; --arena:#D6D2C4; --terracota:#C07D58; --aux:#DDDBD4;
+  --papel:#EEECE6; --blanco:#F8F7F3; --texto:#1D3C34; --suave:#46594F; --linea:#C9C4B4; --verde-2:#26493F;
+  --titulos:"Raleway","Avenir Next","Segoe UI",sans-serif;
+  --cuerpo:"Poppins","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--texto);font-family:var(--cuerpo);font-size:16px;line-height:1.65;font-weight:300}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--verde)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--titulos);text-wrap:balance;margin:0;line-height:1.12;font-weight:800}
+h2{font-size:clamp(1.8rem,4.2vw,2.9rem);letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--terracota);outline-offset:3px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--titulos);font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--terracota)}
+.lead{font-size:1.08rem;max-width:62ch;color:var(--suave)}
+.band{padding-block:clamp(52px,8vw,96px)}
+.band.verde{background:var(--verde);color:var(--arena)}
+.band.verde .lead{color:#C4C0B1}
+.band.blanco{background:var(--blanco);border-block:1px solid var(--linea)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--titulos);font-weight:700;font-size:.92rem;padding:12px 22px;border-radius:99px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;background:none;color:inherit}
+.btn.arena{background:var(--arena);color:var(--verde)}
+.btn.verde{background:var(--verde);color:var(--arena)}
+.btn.borde{border-color:currentColor}
+.btn:hover{box-shadow:inset 0 -2px 0 var(--terracota)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.nota{font-size:.82rem;color:var(--suave);border-left:2px solid var(--terracota);padding-left:12px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--verde);color:var(--arena)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.logo-h{display:block;height:42px;width:auto}
+nav{display:flex;gap:2px}
+nav a{text-decoration:none;font-size:.86rem;padding:7px 11px;border-radius:99px;white-space:nowrap;color:#CFCBBD}
+nav a:hover{color:var(--arena)}
+nav a[aria-current="page"]{color:var(--arena);box-shadow:inset 0 -2px 0 var(--terracota);border-radius:0}
+#menuBtn{display:none;background:none;border:1.5px solid var(--arena);color:var(--arena);border-radius:99px;padding:7px 14px;font:600 .85rem var(--titulos);cursor:pointer}
+@media (max-width:900px){
+  #menuBtn{display:block}
+  nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--verde);padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));border-top:1px solid var(--verde-2)}
+  nav.open{display:flex}
+  nav a{padding:12px 4px;border-radius:0;border-bottom:1px solid var(--verde-2)}
+  nav a[aria-current="page"]{box-shadow:inset 3px 0 0 var(--terracota);padding-left:12px}
+}
+
+/* inicio */
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,6.5vw,4.6rem);font-weight:300;letter-spacing:-.02em}
+.hero h1 b{font-weight:800;display:block}
+.hero .logo-v{width:min(100%,300px);margin-inline:auto;display:block}
+.hero .rule{display:block;width:72px;height:3px;background:var(--terracota);margin-block:22px}
+.lines{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--linea);border-radius:22px;overflow:hidden}
+.line{padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.line.nat{background:var(--verde);color:var(--arena)}
+.line.gra{background:var(--blanco)}
+.line h3{font-size:clamp(1.5rem,3vw,2rem);font-weight:800}
+.line .chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:.8rem;padding:4px 12px;border-radius:99px;border:1px solid currentColor}
+.line .btn{align-self:flex-start;margin-top:auto}
+.puente{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.puente img{width:120px}
+.puente p{font-family:var(--titulos);font-size:clamp(1.4rem,3.4vw,2.3rem);font-weight:300;line-height:1.3;text-wrap:balance}
+.puente b{font-weight:800}
+@media (max-width:760px){.hero .wrap,.lines{grid-template-columns:1fr}.hero .logo-v{width:200px}.puente{grid-template-columns:1fr}.puente img{width:80px}}
+
+/* nosotros */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.two > *{min-width:0}
+.prose{display:flex;flex-direction:column;gap:14px;max-width:62ch}
+.simbolo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:28px;border-top:1px solid #3B5A51}
+.simbolo div{padding:18px 16px 0 0}
+.simbolo b{font-family:var(--titulos);font-size:1.15rem;display:block;color:var(--arena)}
+.simbolo span{font-size:.9rem;color:#C4C0B1}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mv article{background:var(--blanco);border:1px solid var(--linea);border-radius:18px;padding:26px;min-width:0}
+.mv h3{margin-bottom:10px}
+.valores{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px;border-top:1px solid var(--linea)}
+.valores div{padding:18px 18px 18px 0;border-bottom:1px solid var(--linea)}
+.valores b{font-family:var(--titulos);font-weight:700;font-size:1.05rem;display:block}
+.valores span{font-size:.9rem;color:var(--suave)}
+.voz{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+.voz div{min-width:0}
+.voz h3{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:var(--suave)}
+.voz ul{margin:0;padding:0;list-style:none}
+.voz li{font-family:var(--titulos);font-size:1.12rem;padding:9px 0;border-bottom:1px solid var(--linea)}
+.voz .no li{text-decoration:line-through;text-decoration-color:var(--terracota);text-decoration-thickness:2px;color:var(--suave);font-weight:300}
+@media (max-width:860px){.two,.mv{grid-template-columns:1fr}.valores{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.simbolo,.voz{grid-template-columns:1fr}.valores{grid-template-columns:1fr}}
+
+/* naturales */
+.producto{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.producto > *{min-width:0}
+.frasco{background:var(--verde);border-radius:28px;aspect-ratio:4/5;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:28px;color:var(--arena);text-align:center;position:relative;overflow:hidden}
+.frasco img{width:46%}
+.frasco b{font-family:var(--titulos);font-size:1.6rem;font-weight:800;letter-spacing:.02em}
+.frasco small{font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:#C4C0B1}
+.frasco::after{content:"";position:absolute;inset:14px;border:1px solid var(--terracota);border-radius:20px;pointer-events:none}
+.sellos{display:flex;flex-wrap:wrap;gap:8px}
+.sellos span{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;padding:7px 14px;border-radius:99px;background:var(--blanco);border:1px solid var(--linea)}
+.sellos span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--terracota)}
+.tagline{font-family:var(--titulos);font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:.9rem}
+.pronto{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:24px 28px;border:1.5px dashed var(--linea);border-radius:18px}
+.pronto h3{font-size:1.3rem}
+.estado{font:600 .74rem var(--titulos);letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:99px;background:var(--aux);color:var(--verde)}
+@media (max-width:760px){.producto{grid-template-columns:1fr}.frasco{max-width:340px}}
+
+/* regalos */
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{font:500 .86rem var(--cuerpo);padding:8px 16px;border-radius:99px;border:1px solid var(--linea);background:var(--blanco);color:var(--texto);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--verde);border-color:var(--verde);color:var(--arena)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:var(--blanco);border:1px solid var(--linea);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card .art{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;background:var(--aux);position:relative}
+.card .art svg{width:42%;height:auto}
+.card .art .ph{position:absolute;left:12px;bottom:10px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+.card .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .tag{font:700 .7rem var(--titulos);letter-spacing:.16em;text-transform:uppercase;color:var(--suave)}
+.card p{font-size:.9rem;color:var(--suave)}
+.card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px;gap:8px;border-top:1px solid var(--linea)}
+.card .price{font-size:.8rem;color:var(--suave)}
+.add{font:700 .8rem var(--titulos);padding:8px 14px;border-radius:99px;border:1.5px solid var(--verde);background:none;color:var(--verde);cursor:pointer}
+.add.on{background:var(--verde);color:var(--arena)}
+.card .pv{font-family:var(--titulos);font-weight:800;font-size:1.05rem;color:var(--texto)}
+.card .price s{color:var(--suave)}
+.card .tramos{font-size:.8rem;color:var(--suave);background:var(--papel);border-radius:10px;padding:6px 10px}
+.card .tramos b{color:var(--texto);font-weight:600}
+.card .art .promo{position:absolute;right:12px;top:12px;font:700 .68rem var(--titulos);letter-spacing:.12em;text-transform:uppercase;background:var(--verde);color:var(--arena);padding:5px 10px;border-radius:99px;box-shadow:inset 0 -2px 0 var(--terracota)}
+#precioComposta .pv{font-family:var(--titulos);font-weight:800;font-size:1.3rem;color:var(--texto)}
+.condiciones{border-top:1px solid #3B5A51;padding-top:22px;display:grid;grid-template-columns:220px 1fr;gap:20px}
+.condiciones ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.condiciones li{display:flex;gap:10px;color:#C4C0B1}
+.condiciones li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--terracota);margin-top:.6em}
+@media (max-width:640px){.condiciones{grid-template-columns:1fr}}
+.cartbar{position:sticky;bottom:0;z-index:5;background:var(--verde);color:var(--arena);padding-bottom:env(safe-area-inset-bottom,0px)}
+.cartbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px}
+.cartbar span{font-size:.92rem}
+
+/* personaliza */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:0;margin:0;counter-reset:s}
+.steps li{list-style:none;border-top:2px solid var(--terracota);padding-top:16px;counter-increment:s;display:flex;flex-direction:column;gap:6px}
+.steps li::before{content:counter(s);font-family:var(--titulos);font-weight:800;font-size:2rem;line-height:1}
+.steps p{font-size:.92rem;color:var(--suave)}
+.band.verde .steps p{color:#C4C0B1}
+.order{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px)}
+.order > div{min-width:0}
+.list{margin:0;padding:0;list-style:none;border-top:1px solid var(--linea)}
+.list li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--linea);font-size:.95rem}
+.list button{background:none;border:none;color:var(--suave);text-decoration:underline;text-decoration-color:var(--terracota);cursor:pointer;font:inherit;font-size:.82rem}
+.empty{color:var(--suave);font-size:.92rem}
+label{display:block;font-size:.84rem;font-weight:500;margin:18px 0 6px}
+textarea,input{width:100%;font:inherit;font-size:.95rem;padding:12px;border-radius:12px;border:1px solid var(--linea);background:var(--blanco);color:var(--texto)}
+textarea{min-height:96px;resize:vertical}
+.msg{padding:16px;border-radius:14px;background:var(--blanco);border:1px dashed var(--linea);font-size:.9rem;white-space:pre-wrap;word-break:break-word;user-select:all}
+.status{font-size:.84rem;min-height:1.3em}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.order{grid-template-columns:1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* aprende */
+.ciclo{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:0;margin:0;counter-reset:c}
+.ciclo li{list-style:none;counter-increment:c;background:var(--verde-2);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;border-top:3px solid var(--terracota)}
+.ciclo li::before{content:"Paso " counter(c);font:700 .74rem var(--titulos);letter-spacing:.16em;text-transform:uppercase;color:#C4C0B1}
+.ciclo b{font-family:var(--titulos);font-size:1.05rem}
+.ciclo p{font-size:.88rem;color:#C4C0B1}
+.beneficios{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.beneficios div{display:flex;gap:14px;align-items:flex-start}
+.beneficios svg{flex:none;width:40px;height:40px}
+.beneficios b{font-family:var(--titulos);font-size:1.05rem;display:block}
+.beneficios span{font-size:.9rem;color:var(--suave)}
+.road{display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.road div{padding:0 20px 0 0}
+.road div::before{content:"";display:block;width:16px;height:16px;border-radius:50%;border:2px solid var(--terracota);background:var(--papel);margin-bottom:14px;position:relative;z-index:1}
+.road div:first-child::before{background:var(--terracota)}
+.road::before{content:"";position:absolute;left:8px;right:0;top:7px;height:2px;background:var(--linea)}
+.road b{font-family:var(--titulos);letter-spacing:.16em;font-size:.82rem}
+.road p{color:var(--suave);margin-top:4px}
+@media (max-width:860px){.ciclo{grid-template-columns:1fr 1fr}.beneficios{grid-template-columns:1fr}}
+@media (max-width:600px){.road{grid-template-columns:1fr;gap:18px}.road::before{display:none}}
+
+/* contacto */
+.canales{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.canal{display:flex;flex-direction:column;gap:4px;padding:20px;border-radius:16px;background:var(--blanco);border:1px solid var(--linea);min-width:0}
+.canal b{font-family:var(--titulos);font-size:1.1rem}
+.canal span{color:var(--suave);font-size:.92rem}
+.ferias{border-top:1px solid #3B5A51}
+.ferias li{list-style:none;display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #3B5A51;flex-wrap:wrap}
+.ferias ul{margin:0;padding:0}
+@media (max-width:560px){.canales{grid-template-columns:1fr}}
+
+footer{background:var(--verde);color:var(--arena);padding-block:44px}
+footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center}
+footer img{height:54px;width:auto}
+footer p{font-size:.88rem;color:#C4C0B1}
+.redes{display:flex;gap:6px;flex-wrap:wrap}
+.redes span{font-size:.8rem;padding:5px 12px;border-radius:99px;border:1px solid #4A675E}
+.view[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){.view{animation:in .45s ease-out}}
+@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#inicio" aria-label="CHAKA, ir al inicio"><img class="logo-h" src="logos/principal_horizontal_claro.png" alt="CHAKA Vidas Conectadas"></a>
+    <button id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav id="nav" aria-label="Páginas">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Quiénes somos</a>
+      <a href="#naturales">Naturales</a>
+      <a href="#regalos">Regalos gráficos</a>
+      <a href="#personaliza">Personaliza</a>
+      <a href="#aprende">Aprende</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- INICIO -->
+<div class="view" data-view="inicio">
+  <section class="band verde hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Marca chilena · “chaka” es puente en quechua</p>
+        <h1 style="margin-top:18px">Vidas <b>Conectadas</b></h1>
+        <span class="rule"></span>
+        <p class="lead" style="max-width:44ch">Tierra de composta y regalos con identidad chilena: poleras, tazas, chapitas, stickers, imanes, llaveros destapadores y mousepads.</p>
+        <div class="row" style="margin-top:28px">
+          <a class="btn arena" href="#regalos">Ver regalos</a>
+          <a class="btn borde" href="#naturales">Conoce la composta</a>
+        </div>
+      </div>
+      <img class="logo-v" src="logos/principal_claro.png" alt="Logo CHAKA: arco con tres figuras humanas que forman una araucaria">
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap stack" style="gap:28px">
+      <p class="eyebrow">Dos caminos que se encuentran</p>
+      <div class="lines">
+        <article class="line nat">
+          <p class="tagline">Naturales</p>
+          <h3>Lo que vuelve a la tierra vuelve a nosotros</h3>
+          <p>Tierra de Composta: suelo vivo para un mundo más verde, incluso desde un departamento pequeño.</p>
+          <div class="chips"><span>Tierra de Composta</span><span>Macetas y plantas · pronto</span></div>
+          <a class="btn arena" href="#naturales">Ver Tierra de Composta</a>
+        </article>
+        <article class="line gra">
+          <p class="tagline">Regalos gráficos</p>
+          <h3>Regalos personalizados con significado</h3>
+          <p>Transformamos ideas en detalles. Lleva el puente contigo: diseño que se ve en la calle.</p>
+          <div class="chips"><span>Poleras</span><span>Tazas</span><span>Chapitas</span><span>Stickers</span><span>Imanes</span><span>Llaveros</span><span>Mousepads</span></div>
+          <a class="btn verde" href="#regalos">Ver catálogo</a>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="band blanco">
+    <div class="wrap puente">
+      <img src="logos/isotipo_verde_decoracion.png" alt="">
+      <p>Un puente entre <b>lo urbano y lo natural</b>, entre lo que somos y lo que queremos cuidar.</p>
+    </div>
+  </section>
+</div>
+
+<!-- QUIÉNES SOMOS -->
+<div class="view" data-view="nosotros" hidden>
+  <section class="band verde">
+    <div class="wrap two">
+      <div class="stack">
+        <p class="eyebrow">Quiénes somos</p>
+        <h2>CHAKA es un puente entre lo urbano y lo natural</h2>
+        <div class="prose lead">
+          <p>CHAKA significa “puente” en quechua, y esa idea es todo lo que somos: un vínculo entre las personas y la naturaleza, entre la vida en la ciudad y la tierra, entre lo que vestimos y lo que somos.</p>
+          <p>Nacimos en Chile con dos caminos que se encuentran. Por un lado, la Tierra de Composta, un producto natural que devuelve vida al suelo y nos recuerda que cuidar el entorno empieza en casa. Por otro, regalos gráficos con identidad chilena, pensados para llevar un pedazo de nuestro territorio y nuestras historias contigo.</p>
+          <p>Creemos en el diseño bien hecho, en el propósito y en que conectar con lo nuestro puede ser cotidiano y accesible.</p>
+        </div>
+      </div>
+      <div class="stack" style="justify-content:center">
+        <img src="logos/isotipo_claro_decoracion.png" alt="Isotipo CHAKA" style="width:min(70%,280px);margin-inline:auto">
+        <div class="simbolo">
+          <div><b>Araucaria</b><span>Raíces profundas del sur de Chile.</span></div>
+          <div><b>Personas</b><span>Figuras con los brazos en alto.</span></div>
+          <div><b>Arco</b><span>El puente que une ambos mundos.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap stack" style="gap:28px">
+      <div class="mv">
+        <article><h3>Misión</h3><p>Nuestras dos líneas de producción crean productos que conectan con las personas, ya sea interpersonal o intrapersonalmente. Queremos que cada cliente se sienta parte de este proceso creativo y que, al elegir nuestros productos, también contribuya a una forma de consumo más consciente, responsable y respetuosa con el medio ambiente.</p></article>
+        <article><h3>Visión</h3><p>Consolidar a CHAKA como una empresa referente en la conexión entre ideas, creatividad y emociones, creando experiencias que unan a las personas con la naturaleza y entre sí, y formando una comunidad que se sienta parte de algo más grande.</p></article>
+      </div>
+      <div>
+        <p class="eyebrow">Valores</p>
+        <div class="valores">
+          <div><b>Conexión</b><span>Todo está relacionado.</span></div>
+          <div><b>Respeto</b><span>Por la naturaleza, la cultura y las personas.</span></div>
+          <div><b>Creatividad</b><span>Diseñamos para inspirar y transformar.</span></div>
+          <div><b>Honestidad</b><span>Transparencia en lo que hacemos y comunicamos.</span></div>
+          <div><b>Evolución</b><span>Aprendemos, mejoramos y seguimos construyendo el puente.</span></div>
+          <div><b>Autenticidad</b><span>Productos con identidad propia, hechos con intención.</span></div>
+          <div><b>Conciencia ambiental</b><span>Elegir y producir pensando en el entorno, paso a paso.</span></div>
+          <div><b>Emoción</b><span>Objetos que significan algo para quien regala y quien recibe.</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Cómo hablamos</p>
+        <div class="voz">
+          <div><h3>Decimos</h3><ul><li>Cultiva conexión.</li><li>Lo que vuelve a la tierra vuelve a nosotros.</li><li>Cada raíz comienza con un puente.</li><li>Diseñado para durar.</li><li>Naturaleza con intención.</li></ul></div>
+          <div class="no"><h3>No prometemos</h3><ul><li>Salva el planeta</li><li>Sé ecológico</li><li>Compra verde</li><li>100% eco friendly</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- NATURALES -->
+<div class="view" data-view="naturales" hidden>
+  <section class="band">
+    <div class="wrap producto">
+      <div class="frasco" aria-label="Etiqueta de Tierra de Composta">
+        <img src="logos/isotipo_claro_decoracion.png" alt="">
+        <b>Tierra de Composta</b>
+        <small>Nutre · Regenera · Da vida</small>
+      </div>
+      <div class="stack">
+        <p class="eyebrow">Línea natural</p>
+        <h2>Suelo vivo para un mundo más verde</h2>
+        <p class="lead">Nuestro producto principal de la línea natural. Una tierra que devuelve vida al suelo y nos recuerda que cuidar el entorno empieza en casa, incluso en un departamento pequeño.</p>
+        <div class="sellos">
+          <span>100% natural</span><span>Economía circular</span><span>Rica en nutrientes</span><span>Plantas más fuertes</span><span>Planeta más saludable</span>
+        </div>
+        <div class="row" style="margin-top:8px;align-items:center">
+          <button class="btn verde add-direct" type="button" data-n="Tierra de Composta">Agregar a mi pedido</button>
+          <span id="precioComposta" style="font-size:.88rem;color:var(--suave)"><span class="price">Precio por confirmar</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="band blanco">
+    <div class="wrap stack" style="gap:20px">
+      <div class="pronto">
+        <div class="stack" style="gap:6px"><span class="estado" style="align-self:flex-start">Próximamente</span><h3>Macetas y plantas</h3><p class="lead" style="font-size:.95rem">Para traer algo vivo a tu rutina aunque no tengas jardín.</p></div>
+        <a class="btn borde" href="#contacto">Avísame cuando lleguen</a>
+      </div>
+      <p class="nota">¿Quieres hacer tu propia composta? Mira <a href="#aprende">la guía en 5 pasos</a>.</p>
+    </div>
+  </section>
+</div>
+
+<!-- REGALOS -->
+<div class="view" data-view="regalos" hidden>
+  <section class="band">
+    <div class="wrap stack" style="gap:24px">
+      <div class="stack">
+        <p class="eyebrow">Regalos gráficos</p>
+        <h2>Regalos personalizados con significado</h2>
+        <p class="lead">Objetos con identidad chilena que transforman ideas en detalles. Elige con ilustraciones CHAKA o personalízalos con tu idea.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar catálogo">
+        <button type="button" data-f="todos" aria-pressed="true">Todo</button>
+        <button type="button" data-f="textiles" aria-pressed="false">Textiles</button>
+        <button type="button" data-f="objetos" aria-pressed="false">Objetos gráficos</button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="nota"><span id="actualizado">Precios por confirmar: escríbenos y te cotizamos.</span> Las imágenes son provisorias mientras preparamos la fotografía real de cada producto.</p>
+    </div>
+  </section>
+</div>
+
+<!-- PERSONALIZA -->
+<div class="view" data-view="personaliza" hidden>
+  <section class="band verde">
+    <div class="wrap stack" style="gap:32px">
+      <div class="stack">
+        <p class="eyebrow">Personaliza</p>
+        <h2>Tu idea, convertida en un detalle con significado</h2>
+        <p class="lead">Queremos que seas parte del proceso creativo. Así funciona un pedido a medida.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Elige el producto</h3><p>Polera, taza, chapita, sticker, imán, llavero o mousepad.</p></li>
+        <li><h3>Cuéntanos la idea</h3><p>Una imagen, una frase o la historia que quieres regalar.</p></li>
+        <li><h3>Aprueba el diseño</h3><p>Te mostramos una propuesta y la ajustamos contigo.</p></li>
+        <li><h3>Lo producimos</h3><p>Con serigrafía, vinil o sublimación, según el producto. Entrega en 5 a 7 días hábiles.</p></li>
+      </ol>
+      <div class="condiciones">
+        <h3>Condiciones del pedido</h3>
+        <ul id="condiciones">
+          <li>Se requiere 50% de adelanto para iniciar producción.</li>
+          <li>Plazo de entrega: 5-7 días hábiles tras confirmación.</li>
+          <li>No se aceptan devoluciones en productos personalizados.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap order">
+      <div class="stack">
+        <p class="eyebrow">Arma tu pedido</p>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.1rem)">Tu selección</h2>
+        <ul class="list" id="list"></ul>
+        <div>
+          <label for="idea">Tu idea o personalización</label>
+          <textarea id="idea" placeholder="Ej: 2 tazas con una araucaria y el nombre “Javi”"></textarea>
+          <label for="nombre">Tu nombre</label>
+          <input id="nombre" type="text" autocomplete="name" placeholder="Nombre">
+        </div>
+      </div>
+      <div class="stack">
+        <h3>Mensaje listo para enviar</h3>
+        <div class="msg" id="msg"></div>
+        <div class="row" style="align-items:center"><a class="btn verde" id="wa" href="https://wa.me/56945659793" target="_blank" rel="noopener">Enviar por WhatsApp</a><button class="btn borde" type="button" id="copy">Copiar mensaje</button></div>
+        <p class="status" id="status" role="status"></p>
+        <p class="nota">El botón abre WhatsApp con tu mensaje listo para enviar al +56 9 4565 9793. Si no se abre, copia el mensaje y escríbenos a ese número o a nuestras redes, donde somos CHAKA.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- APRENDE -->
+<div class="view" data-view="aprende" hidden>
+  <section class="band verde">
+    <div class="wrap stack" style="gap:32px">
+      <div class="stack">
+        <p class="eyebrow">Composta hoy</p>
+        <h2>Pequeñas acciones, grandes ciclos</h2>
+        <p class="lead">Conecta con la naturaleza desde lo cotidiano. Así se hace composta en casa.</p>
+      </div>
+      <ol class="ciclo">
+        <li><b>Elige un contenedor</b><p>Un recipiente que puedas tapar y ventilar.</p></li>
+        <li><b>Agrega residuos orgánicos</b><p>Cáscaras, restos de frutas y verduras.</p></li>
+        <li><b>Alterna capas</b><p>Combina lo húmedo con material seco.</p></li>
+        <li><b>Revuelve y mantén la humedad</b><p>Para que el proceso siga activo.</p></li>
+        <li><b>Obtén composta</b><p>En 2 a 3 meses tienes suelo vivo.</p></li>
+      </ol>
+      <p style="font-family:var(--titulos);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:300">Residuos que <b style="font-weight:800">florecen vidas</b>.</p>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap stack" style="gap:44px">
+      <div class="beneficios">
+        <div><svg viewBox="0 0 40 40" fill="none" stroke="#C07D58" stroke-width="2.4" stroke-linecap="round"><path d="M10 14h20l-2 20H12Z"/><path d="M8 14h24M16 10h8"/></svg><div><b>Menos basura</b><span>Lo orgánico deja de llegar al relleno sanitario.</span></div></div>
+        <div><svg viewBox="0 0 40 40" fill="none" stroke="#C07D58" stroke-width="2.4" stroke-linecap="round"><path d="M6 30h28"/><path d="M20 30V14"/><path d="M20 20c-6 0-9-5-8-10 5 0 8 4 8 10Zm0-2c5 0 8-4 7-8-5 0-7 4-7 8"/></svg><div><b>Suelos más fértiles</b><span>Nutrientes que vuelven a la tierra.</span></div></div>
+        <div><svg viewBox="0 0 40 40" fill="none" stroke="#C07D58" stroke-width="2.4" stroke-linecap="round"><circle cx="13" cy="13" r="4"/><circle cx="27" cy="13" r="4"/><path d="M6 32c0-6 3-10 7-10s7 4 7 10M20 32c0-6 3-10 7-10s7 4 7 10"/></svg><div><b>Comunidades más conectadas</b><span>Cuidar el entorno también nos acerca.</span></div></div>
+      </div>
+      <div class="stack" style="gap:24px">
+        <div class="stack">
+          <p class="eyebrow">Sostenibilidad sin maquillaje</p>
+          <h2 style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Hablamos de pasos, no de perfección</h2>
+          <p class="lead">Hoy no todos nuestros productos y procesos son 100% sostenibles. Nos comprometemos a avanzar hacia mejores materiales, reutilización y menos residuos a medida que crecemos.</p>
+        </div>
+        <div class="road">
+          <div><b>HOY</b><p>Damos pasos conscientes.</p></div>
+          <div><b>MAÑANA</b><p>Mejoramos materiales, procesos y prácticas.</p></div>
+          <div><b>FUTURO</b><p>Buscamos ser una marca circular y regenerativa.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACTO -->
+<div class="view" data-view="contacto" hidden>
+  <section class="band">
+    <div class="wrap two">
+      <div class="stack">
+        <p class="eyebrow">Contacto</p>
+        <h2>Un puente hacia la creatividad y conexión con lo que amamos</h2>
+        <p class="lead">Escríbenos para cotizar, personalizar un regalo o saber dónde encontrarnos.</p>
+        <div class="row"><a class="btn verde" href="#personaliza">Armar mi pedido</a></div>
+      </div>
+      <div class="canales">
+        <div class="canal"><b>WhatsApp</b><span style="user-select:all">+56 9 4565 9793</span><a class="btn verde" style="align-self:flex-start;margin-top:8px;padding:8px 16px;font-size:.84rem" href="https://wa.me/56945659793" target="_blank" rel="noopener">Abrir chat</a></div>
+        <div class="canal"><b>Instagram</b><span>CHAKA</span></div>
+        <div class="canal"><b>TikTok</b><span>CHAKA</span></div>
+        <div class="canal"><b>Facebook</b><span>CHAKA</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="band verde">
+    <div class="wrap stack" style="gap:20px">
+      <p class="eyebrow">Dónde encontrarnos</p>
+      <h2 style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Ferias de diseño, mercados locales y tiendas de barrio</h2>
+      <div class="ferias"><ul>
+        <li><span>Próximas ferias</span><span style="color:#C4C0B1">Calendario por publicar</span></li>
+        <li><span>Puntos de venta</span><span style="color:#C4C0B1">Por confirmar</span></li>
+      </ul></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<div class="cartbar" id="cartbar" hidden>
+  <div class="wrap"><span id="cartCount"></span><a class="btn arena" href="#personaliza">Ver mi pedido</a></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="logos/principal_horizontal_negativo.png" alt="CHAKA Vidas Conectadas">
+    <div class="stack" style="gap:10px">
+      <p>Regalos personalizados, composta y más.</p>
+      <div class="redes"><span>Instagram · CHAKA</span><span>TikTok · CHAKA</span><span>Facebook · CHAKA</span><span>WhatsApp · +56 9 4565 9793</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const icons={
+  polera:'<path d="M36 22 22 30l6 14 8-4v42h28V40l8 4 6-14-14-8c-2 6-8 8-14 8s-12-2-14-8Z"/>',
+  taza:'<path d="M26 32h38v34a10 10 0 0 1-10 10H36a10 10 0 0 1-10-10Z"/><path d="M64 40h6a8 8 0 0 1 0 16h-6"/>',
+  chapita:'<circle cx="50" cy="52" r="26"/><circle cx="50" cy="52" r="18"/>',
+  sticker:'<path d="M26 26h48v32L58 74H26Z"/><path d="M58 74V58h16"/>',
+  iman:'<path d="M30 30v24a20 20 0 0 0 40 0V30H58v24a8 8 0 0 1-16 0V30Z"/><path d="M30 40h12M58 40h12"/>',
+  llavero:'<circle cx="36" cy="36" r="10"/><path d="M44 44 72 72M62 62l-6 6M70 70l-6 6"/>',
+  mouse:'<rect x="20" y="30" width="60" height="42" rx="8"/><path d="M58 46a6 8 0 0 1 12 0v8a6 8 0 0 1-12 0Z"/>'
+};
+const items=[
+  {n:"Poleras",c:"textiles",i:"polera",t:"Serigrafía · vinil · sublimación",d:"La cara principal de CHAKA. Diseño que se ve en la calle, con ilustraciones de la marca o tu propia idea."},
+  {n:"Tazas",c:"objetos",i:"taza",t:"Personalizable",d:"Con una foto, una frase o una ilustración. El regalo de todos los días, con intención."},
+  {n:"Chapitas",c:"objetos",i:"chapita",t:"Personalizable",d:"Para la mochila o la chaqueta. Pequeños símbolos que cuentan quién eres."},
+  {n:"Stickers",c:"objetos",i:"sticker",t:"Personalizable",d:"Ilustraciones del territorio o tu propio diseño, para llevar a todas partes."},
+  {n:"Imanes",c:"objetos",i:"iman",t:"Personalizable",d:"Un recuerdo con significado para la puerta del refri."},
+  {n:"Llaveros destapadores",c:"objetos",i:"llavero",t:"Personalizable",d:"Útiles y personales, con nombre, fecha o ilustración."},
+  {n:"Mousepads",c:"objetos",i:"mouse",t:"Personalizable",d:"Para el escritorio propio o para regalar en la oficina."}
+];
+/* Precios: la página lee precios.json, exportado desde el programa CHAKA (Catálogo → "Precios para la web").
+   Sin ese archivo, o sin productos publicados, muestra el catálogo general con "Precio por confirmar". */
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clp=n=>'$'+Math.round(n).toLocaleString('es-CL');
+const fecha=s=>{const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(s||'');return m?`${m[3]}-${m[2]}-${m[1]}`:'';};
+function iconoPara(cat,nom){const t=(cat+' '+nom).toLowerCase();
+  if(/taza/.test(t))return'taza';if(/chapita|pin/.test(t))return'chapita';if(/sticker/.test(t))return'sticker';if(/im[aá]n/.test(t))return'iman';
+  if(/llavero|destapador/.test(t))return'llavero';if(/mouse/.test(t))return'mouse';return'polera';}
+let fuente='general';           // 'general' o 'programa'
+let precios={};                 // nombre -> producto del programa
+const cart=new Set();
+const grid=document.getElementById('grid'),filtersEl=document.querySelector('.filters');let filtro='todos';
+function precioHTML(x){
+  if(!x.p)return'<span class="price">Precio por confirmar</span>';
+  const p=x.p;let h='';
+  if(p.promo&&p.promo.precio)h=`<span class="price"><s>${clp(p.precio)}</s> <b class="pv">${clp(p.promo.precio)}</b><br>${esc(p.promo.nombre)} −${p.promo.descuento}%${p.promo.hasta?' hasta '+fecha(p.promo.hasta):''}</span>`;
+  else if(p.precio)h=`<span class="price"><b class="pv">${clp(p.precio)}</b> c/u</span>`;
+  else h='<span class="price">Precio a cotizar</span>';
+  return h;
+}
+function tramosHTML(x){
+  if(!x.p||!x.p.tramos||!x.p.tramos.length)return'';
+  return `<p class="tramos">${x.p.tramos.map(t=>`${t.desde}+ u. <b>${clp(t.precio)}</b>`).join(' · ')}</p>`;
+}
+function render(){
+  grid.innerHTML=items.filter(x=>filtro==='todos'||x.c===filtro).map(x=>{const on=cart.has(x.n);
+    return `<article class="card"><div class="art"><svg viewBox="0 0 100 100" fill="none" stroke="#1D3C34" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[x.i]}</svg><span class="ph">Foto por agregar</span>${x.p&&x.p.promo?'<span class="promo">Promoción</span>':''}</div>
+    <div class="body"><span class="tag">${esc(x.t)}</span><h3>${esc(x.n)}</h3>${x.d?`<p>${esc(x.d)}</p>`:''}${tramosHTML(x)}
+    <div class="foot">${precioHTML(x)}<button type="button" class="add${on?' on':''}" data-n="${esc(x.n)}" aria-pressed="${on}">${on?'Agregado':'Agregar'}</button></div></div></article>`}).join('');
+}
+function filtros(){
+  const cats=fuente==='programa'?[...new Set(items.map(x=>x.c))]:null;
+  if(cats){filtersEl.innerHTML=['todos',...cats].map(c=>`<button type="button" data-f="${esc(c)}" aria-pressed="${c===filtro}">${c==='todos'?'Todo':esc(c)}</button>`).join('');}
+  filtersEl.hidden=cats?cats.length<2:false;
+}
+filtersEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;filtro=b.dataset.f;filtersEl.querySelectorAll('button').forEach(o=>o.setAttribute('aria-pressed',o===b));render();});
+function aplicarPrecios(data){
+  const prods=(data&&Array.isArray(data.productos))?data.productos:[];
+  if(data&&Array.isArray(data.condiciones)&&data.condiciones.length){
+    document.getElementById('condiciones').innerHTML=data.condiciones.map(c=>`<li>${esc(c)}</li>`).join('');
+  }
+  if(!prods.length)return;
+  prods.forEach(p=>precios[p.nombre]=p);
+  const composta=prods.filter(p=>/composta/i.test(p.nombre));
+  const regalos=prods.filter(p=>!/composta/i.test(p.nombre));
+  if(regalos.length){
+    fuente='programa';filtro='todos';
+    items.length=0;
+    regalos.forEach(p=>items.push({n:p.nombre,c:p.categoria||'Otros',i:iconoPara(p.categoria||'',p.nombre),t:p.categoria||'',d:p.descripcion||'',p}));
+  }
+  if(composta.length){
+    const p=composta[0],btn=document.querySelector('.add-direct'),pr=document.getElementById('precioComposta');
+    btn.dataset.n=p.nombre;
+    pr.innerHTML=precioHTML({p})+(p.tramos&&p.tramos.length?' '+tramosHTML({p}):'');
+  }
+  const f=data.generado?fecha(data.generado):'';
+  document.getElementById('actualizado').textContent=`Precios ${data.iva_incluido?'con IVA incluido':''}${f?', actualizados al '+f:''}. Productos personalizados se confirman al aprobar el diseño.`;
+  filtros();render();update();
+}
+function lineaPedido(n){const p=precios[n];if(!p)return'• '+n;
+  const v=p.promo&&p.promo.precio?p.promo.precio:p.precio;
+  return `• ${n}${p.sku?' ('+p.sku+')':''}${v?' · '+clp(v)+' c/u':''}`;}
+function toggle(n){cart.has(n)?cart.delete(n):cart.add(n);render();update();}
+grid.addEventListener('click',e=>{const b=e.target.closest('.add');if(b)toggle(b.dataset.n);});
+document.querySelectorAll('.add-direct').forEach(b=>b.addEventListener('click',()=>toggle(b.dataset.n)));
+const list=document.getElementById('list'),msg=document.getElementById('msg'),idea=document.getElementById('idea'),nombre=document.getElementById('nombre');
+function update(){
+  list.innerHTML=cart.size?[...cart].map(n=>`<li><span>${n}</span><button type="button" data-n="${n}">Quitar</button></li>`).join(''):'<li class="empty">Aún no eliges productos. Agrégalos desde Regalos gráficos o Naturales.</li>';
+  const who=nombre.value.trim();
+  msg.textContent=`Hola CHAKA${who?', soy '+who:''}. Me gustaría cotizar:\n`+(cart.size?[...cart].map(lineaPedido).join('\n'):'• (productos por elegir)')+(idea.value.trim()?`\n\nMi idea: ${idea.value.trim()}`:'')+'\n\n¡Gracias!';
+  document.getElementById('wa').href='https://wa.me/56945659793?text='+encodeURIComponent(msg.textContent);
+  document.querySelectorAll('.add-direct').forEach(b=>{const on=cart.has(b.dataset.n);b.textContent=on?'En tu pedido ✓':'Agregar a mi pedido';});
+  bar();
+}
+list.addEventListener('click',e=>{const b=e.target.closest('button');if(b)toggle(b.dataset.n);});
+idea.addEventListener('input',update);nombre.addEventListener('input',update);
+document.getElementById('copy').addEventListener('click',()=>{const s=document.getElementById('status');
+  navigator.clipboard.writeText(msg.textContent).then(()=>s.textContent='Mensaje copiado. Pégalo en WhatsApp o Instagram.').catch(()=>{const r=document.createRange();r.selectNodeContents(msg);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);s.textContent='Texto seleccionado. Cópialo con tu teclado o menú.';});});
+
+/* páginas */
+const views=[...document.querySelectorAll('.view')],links=[...document.querySelectorAll('nav a')],nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
+let actual='inicio';
+function bar(){const b=document.getElementById('cartbar');b.hidden=!cart.size||actual==='personaliza';document.getElementById('cartCount').textContent=cart.size===1?'1 producto en tu pedido':cart.size+' productos en tu pedido';}
+function route(){
+  const id=(location.hash||'#inicio').slice(1);
+  actual=views.some(v=>v.dataset.view===id)?id:'inicio';
+  views.forEach(v=>v.hidden=v.dataset.view!==actual);
+  links.forEach(a=>a.getAttribute('href')==='#'+actual?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+  nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');
+  window.scrollTo(0,0);bar();
+}
+menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o);});
+addEventListener('hashchange',route);
+render();update();route();
+fetch('precios.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(aplicarPrecios).catch(()=>{});
+</script>
+
+</body>
+</html>
